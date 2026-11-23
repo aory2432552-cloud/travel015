@@ -1,0 +1,182 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    line-height: 1.65;
+    color: #55434c;
+    background: #FFF0F5;
+}
+
+header, footer {
+    padding: 1rem;
+    color: #754B5C;
+    background: #F3C6D7;
+}
+
+.site-name {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    color: #ffffff;
+    border-radius: 0.35rem;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    background: #FCE4EC;
+    color: #AD5578;
+}
+
+a:focus-visible {
+    outline: 3px solid #D77FA0;
+    outline-offset: 3px;
+}
+
+main {
+    width: min(92%, 56rem);
+    margin: 2rem auto;
+}
+
+.card {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #F2D2DF;
+    border-radius: 0.75rem;
+    background: #FFFFFF;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.35rem;
+    background: #E9A9C1;
+    color: white;
+    text-decoration: none;
+}
+
+/* สไลด์รูปภาพหน้าแรก */
+
+.slideshow {
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.slideshow img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slide-dots {
+    margin-top: 12px;
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #754B5C;
+}
+
+@media (max-width: 600px) {
+    .slideshow img {
+        height: 250px;
+    }
+}
+
+/* สไลด์สถานที่ท่องเที่ยว */
+
+.places-slider {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.places-track {
+    display: flex;
+    width: 400%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.places-slide {
+    flex: 0 0 25%;
+    width: 25%;
+    min-width: 0;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.places-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.places-slide h2 {
+    color: #754B5C;
+    margin: 15px 0 5px;
+}
+
+.places-slide p {
+    margin: 5px 10px;
+}
+
+.places-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.places-button .button {
+    background: #D98EAA;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+}
+
+.places-button .button:hover {
+    background: #754B5C;
+}
+
+@media (max-width: 600px) {
+    .places-slide img {
+        height: 230px;
+    }
+}

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>หน้าแรก | เที่ยวบ้านเรา</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* รูปภาพแกลลอรี่ */
+.slideshow {
+    width: 100%;
+    max-width: 750px;
+    height: 350px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slideshow .slide {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.slideshow .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slideshow .slide.prev {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+/* วงกลมแสดงตำแหน่งภาพ */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #D8D8D8;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #EFA6A6;
+}
+
+@media (max-width: 600px) {
+    .slideshow {
+        height: 230px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<p class="site-name">เที่ยวบ้านเรา</p>
+
+<nav aria-label="เมนูหลัก">
+<ul>
+<li><a href="index.html">หน้าแรก</a></li>
+<li><a href="places.html">ที่เที่ยว</a></li>
+<li><a href="food.html">อาหาร</a></li>
+<li><a href="plan.html">วางแผนเที่ยว</a></li>
+<li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+
+<h1>เที่ยวบ้านเราในหนึ่งวัน</h1>
+
+<p>ชวนเดินตลาด ชิมอาหารพื้นถิ่น และพักชมวิวในชุมชน</p>
+
+<section class="card">
+<h2>เริ่มจากจุดที่คุณสนใจ</h2>
+
+<p>เลือกสถานที่ที่อยากไป แล้วจัดเส้นทางให้เหมาะกับเวลาของคุณ</p>
+
+<a class="button" href="places.html">ดูแหล่งท่องเที่ยว</a>
+</section>
+
+<!-- ส่วนเพิ่มเติม แกลลอรี่รูปภาพ -->
+<section class="card">
+
+<h2>แกลลอรี่ภาพท่องเที่ยว</h2>
+
+<p>ชมภาพบรรยากาศสถานที่ท่องเที่ยวของเรา</p>
+
+<div class="slideshow">
+
+<img src="images/aomanow.jpg" class="slide active" alt="อ่าวมะนาว">
+
+<img src="images/Kaow.jpg" class="slide" alt="ภูเขา">
+
+<img src="images/KLM.jpg" class="slide" alt="เขาล้อมหมวก">
+
+<img src="images/market1.jpg" class="slide" alt="ตลาด">
+
+<img src="images/sapanpla.jpg" class="slide" alt="สะพานปลา">
+
+</div>
+
+<!-- วงกลมบอกตำแหน่งภาพ -->
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<p>นางสาว นันทวัน วรรณวงษ์  | ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+
+<!-- คำสั่งเลื่อนภาพอัตโนมัติ -->
+<script>
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slideshow .slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide() {
+
+    let oldSlide = currentSlide;
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    slides[oldSlide].classList.remove("active");
+    slides[oldSlide].classList.add("prev");
+
+    slides[currentSlide].classList.add("active");
+
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    dots[currentSlide].classList.add("active");
+
+    setTimeout(function() {
+        slides[oldSlide].classList.remove("prev");
+    }, 550);
+
+}
+
+setInterval(showSlide, 2000);
+
+</script>
+
+</body>
+</html>
